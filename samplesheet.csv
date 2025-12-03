@@ -1,0 +1,2 @@
+sample_id,fastq_1,fastq_2
+NGS_224_923_Li_1,data_small/fastq/NGS_224_923_Li_1_R1.small.fastq,data_small/fastq/NGS_224_923_Li_1_R2.small.fastq
