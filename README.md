@@ -17,20 +17,16 @@ The pipeline processes paired-end FASTQ files defined via a sample sheet.
 
 To run the pipeline you need:
 
-- **Nextflow** (version ≥ 22)
-- **Docker** (enabled and running)
-- **Paired-end FASTQ files**
 - **STAR genome index**
 - **GTF annotation file**
+- **Sample Sheet**
 
-The paths to the STAR index and GTF file are provided via:
+The paths/files required to the STAR index and GTF file are provided via:
 
 - `--indexforstar`
 - `--gtf_file`
-
-Full genome indexes can be large and require substantial memory.  
-A small index and dataset are included for testing (`-profile test`).
-
+- `--samplesheet`
+  
 ---
 
 ## Sample Sheet Format
@@ -53,3 +49,4 @@ nextflow run main.nf \
   --samplesheet path/to/samplesheet.csv \
   --indexforstar path/to/star_index \
   --gtf_file path/to/annotation.gtf
+
