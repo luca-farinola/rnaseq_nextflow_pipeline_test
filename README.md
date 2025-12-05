@@ -26,6 +26,12 @@ The paths/files required to the STAR index and GTF file are provided via:
 - `--indexforstar`
 - `--gtf_file`
 - `--samplesheet`
+
+### Additional flags 
+
+if you want to check adapters before moving on to trimming 
+- `--onlyqc`
+- `--trim`
   
 ---
 
@@ -49,4 +55,5 @@ nextflow run main.nf \
   --samplesheet path/to/samplesheet.csv \
   --indexforstar path/to/star_index \
   --gtf_file path/to/annotation.gtf
+
 
