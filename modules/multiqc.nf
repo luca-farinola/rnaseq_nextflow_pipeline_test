@@ -7,14 +7,15 @@ process MULTIQC {
     
     label 'multiqc'
 
-    errorStrategy 'finish'
+    errorStrategy 'retry'
+    maxRetries 2
 
     input:
     path fastqc_files
             
     output:
-    path "*multiqc_report.html"
-    path "*_data" 
+    path "multiqc_report.html", emit: html
+    path "multiqc_data/", emit: data 
     
     script: 
     """

@@ -18,6 +18,8 @@ process TRIM_GALORE {
 
     script:
     """
-    trim_galore --fastqc --paired ${read1} ${read2}
+    echo "[TRIM_GALORE] Processing sample: ${sample_id}"
+    trim_galore --fastqc --cores ${task.cpus} --paired ${read1} ${read2}
+    echo "[TRIM_GALORE] ✅ Sample ${sample_id} complete"
     """
 }

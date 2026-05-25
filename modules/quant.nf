@@ -14,10 +14,20 @@ process QUANT {
     path gtf_file
 
     output:
-    path "count_table.txt", emit: counts
+    path "gene_counts.txt", emit: counts
 
     script:  
     """
-    featureCounts -p --countReadPairs -a ${gtf_file} -o count_table.txt ${bam_files} -s 0
+    echo "[QUANT] Starting feature counting..."
+    echo "[QUANT] Processing \$(echo ${bam_files} | wc -w) BAM files with ${task.cpus} cores"
+    featureCounts -p --countReadPairs \
+    -a "${gtf_file}" \
+    -o gene_counts.txt \
+    -t exon \
+    -g gene_id \
+    -s 0 \
+    -T ${task.cpus} \
+    ${bam_files}
+    echo "[QUANT] ✅ Feature counting complete"
     """
 }

@@ -21,6 +21,7 @@ process STAR_ALIGN {
 
     script:
     """
+    echo "[STAR] Aligning sample: ${sample_id}"
     STAR \
       --genomeDir ${indexforstar} \
       --runThreadN ${task.cpus} \
@@ -28,5 +29,6 @@ process STAR_ALIGN {
       --readFilesCommand zcat \
       --outSAMtype BAM Unsorted \
       --outFileNamePrefix ${sample_id}.
+    echo "[STAR] ✅ Sample ${sample_id} aligned"
     """
 }
